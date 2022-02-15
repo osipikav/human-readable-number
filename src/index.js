@@ -48,8 +48,10 @@ module.exports = function toReadable(number) {
     } else if (numArr.length == 3) {
         funHundred(num);
     }
-    let finOut =
-        "Should return '" + output.trim() + "' when " + number + " given";
+    let finOut = output.trim();
+
+    // let finOut =
+    //     "Should return '" + output.trim() + "' when " + number + " given";
     return finOut;
     // console.log("finOut :>> ", finOut);
 
@@ -67,10 +69,12 @@ module.exports = function toReadable(number) {
 
     function funHundred(num) {
         output += ones[numArr[0]] + hundred;
-        if (num < 20) {
-            output += ones[num];
+        if (num % 100 < 20) {
+            output += ones[num % 100];
         } else {
             output += tens[numArr[1]] + ones[numArr[2]];
         }
     }
 };
+
+// toReadable(212);
